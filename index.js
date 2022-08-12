@@ -4,7 +4,13 @@ const path = require("node:path");
 const { Client, GatewayIntentBits, Collection } = require("discord.js");
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMessageReactions,
+  ],
+});
 
 const eventsPath = path.join(__dirname, "events");
 const eventFiles = fs
